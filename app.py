@@ -14,7 +14,7 @@ cols = ['BDEP', 'TPO', 'HL', 'BHT', 'WOB']
 
 @app.route('/')
 def home():
-    return render_template("templates/home.html")
+    return render_template("home.html")
 
 @app.route('/predict',methods=['POST'])
 def predict():
