@@ -8,7 +8,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Loads pre-trained model
-model = load_model('models/Intelie_by_Viasat Challenge Model.pkl')
+model = load_model('models/Intelie_by_Viasat Challenge Model')
 
 cols = ['BDEP', 'TPO', 'HL', 'BHT', 'WOB']
 
