@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Intelie by Viasat</title>
+        <style>
+            .login {
+                overflow-x: hidden;
+                overflow-y: hidden;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+            .title {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+            }
+
+            .title-name {
+                margin-bottom: -5px;
+                color: #5CDF8E;
+            }
+
+            .inputs {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 50%;
+                margin: auto;
+                gap: 10px;
+            }
+
+            .input {
+                padding: 10px 10px;
+                width: 300px;
+            }
+
+            .button {
+                padding: 10px 10px;
+                width: 325px;
+            }
+
+            img {
+                width: 15%;
+                size: 20px;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body style="overflow-y: hidden">
+        <div class="login">
+            <div class="title">
+                <img
+                    src="https://1000logos.net/wp-content/uploads/2021/04/Viasat-logo.png"
+                    alt="logo"
+                />
+                <h1 class="title-name">Predict Slip Position</h1>
+            </div>
+
+            <!-- Main Input For Receiving Query to our ML -->
+            <form class="inputs" action="{{ url_for('predict')}}" method="post">
+                <input
+                    type="text"
+                    name="BDEP"
+                    placeholder="Bit Depth in m"
+                    required="required"
+                    class="input"
+                />
+                <input
+                    type="text"
+                    name="TPO"
+                    placeholder="Fluid Flow in gpm"
+                    required="required"
+                    class="input"
+                />
+                <input
+                    type="text"
+                    name="HL"
+                    placeholder="Hook Load"
+                    required="required"
+                    class="input"
+                />
+                <input
+                    type="text"
+                    name="BHT"
+                    placeholder="Block Position in m"
+                    required="required"
+                    class="input"
+                />
+                <input
+                    type="text"
+                    name="WOB"
+                    placeholder="Weight on Bit in klbf"
+                    required="required"
+                    class="input"
+                />
+                <button type="submit" class="button">Predict</button>
+            </form>
+            <div style="margin-bottom: 200px">{{ pred }}</div>
+        </div>
+    </body>
+</html>
