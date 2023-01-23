@@ -5,7 +5,7 @@ import pickle
 import numpy as np
 
 # Initalise the Flask app
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
 # Loads pre-trained model
 model = load_model('models/Intelie_by_Viasat Challenge Model')
